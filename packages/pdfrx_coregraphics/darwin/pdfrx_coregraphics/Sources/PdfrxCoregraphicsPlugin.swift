@@ -193,13 +193,7 @@ public class PdfrxCoregraphicsPlugin: NSObject, FlutterPlugin {
     }
 
     // Create an empty PDF document
-    guard let pdfDocument = PDFDocument() else {
-      result(
-        FlutterError(
-          code: "pdf-document-failure", message: "Failed to create PDFDocument.", details: nil
-        ))
-      return
-    }
+    let pdfDocument = PDFDocument()
 
     // Create a PDF page with the specified dimensions
     let pageRect = CGRect(x: 0, y: 0, width: width, height: height)
