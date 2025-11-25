@@ -144,13 +144,7 @@ public class PdfrxCoregraphicsPlugin: NSObject, FlutterPlugin {
   private func createNewDocument(arguments: Any?, result: @escaping FlutterResult) {
     // Create a truly empty PDF document with no pages
     // PDFDocument() creates an empty document directly
-    guard let pdfDocument = PDFDocument() else {
-      result(
-        FlutterError(
-          code: "pdf-document-failure", message: "Failed to create empty PDFDocument.", details: nil
-        ))
-      return
-    }
+    let pdfDocument = PDFDocument()
 
     // Register the document
     let handle = nextHandle
@@ -199,23 +193,11 @@ public class PdfrxCoregraphicsPlugin: NSObject, FlutterPlugin {
     }
 
     // Create an empty PDF document
-    guard let pdfDocument = PDFDocument() else {
-      result(
-        FlutterError(
-          code: "pdf-document-failure", message: "Failed to create PDFDocument.", details: nil
-        ))
-      return
-    }
+    let pdfDocument = PDFDocument()
 
     // Create a PDF page with the specified dimensions
     let pageRect = CGRect(x: 0, y: 0, width: width, height: height)
-    guard let pdfPage = PDFPage() else {
-      result(
-        FlutterError(
-          code: "pdf-page-failure", message: "Failed to create PDF page.", details: nil
-        ))
-      return
-    }
+    let pdfPage = PDFPage()
     pdfPage.setBounds(pageRect, for: .mediaBox)
 
     // Create image from JPEG data
